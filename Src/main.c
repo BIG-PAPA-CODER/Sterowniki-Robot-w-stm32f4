@@ -114,11 +114,6 @@ int main(void)
   /* USER CODE BEGIN Init */
   BSP_GYRO_Init();
   BSP_LCD_Init();
-  BSP_LCD_LayerDefaultInit(LCD_BACKGROUND_LAYER, LCD_FRAME_BUFFER);
-  BSP_LCD_LayerDefaultInit(LCD_FOREGROUND_LAYER, LCD_FRAME_BUFFER);
-  BSP_LCD_DisplayOn();
-  BSP_LCD_SelectLayer(LCD_FOREGROUND_LAYER);
-  BSP_LCD_Clear(LCD_COLOR_WHITE);
   /* USER CODE END Init */
 
   /* Configure the system clock */
@@ -139,7 +134,24 @@ int main(void)
   MX_TIM1_Init();
   MX_USART1_UART_Init();
   /* USER CODE BEGIN 2 */
+  BSP_LCD_LayerDefaultInit(LCD_BACKGROUND_LAYER, LCD_FRAME_BUFFER);
+  BSP_LCD_LayerDefaultInit(LCD_FOREGROUND_LAYER, LCD_FRAME_BUFFER);
+//  BSP_LCD_LayerDefaultInit(1, LCD_FRAME_BUFFER);
+  BSP_LCD_DisplayOn();
+  BSP_LCD_SelectLayer(LCD_FOREGROUND_LAYER);
+  BSP_LCD_Clear(LCD_COLOR_WHITE);
+  BSP_LCD_SetFont(&Font12);
+//  BSP_LCD_DisplayOff();
+//    BSP_LCD_SetTextColor(LCD_COLOR_MAGENTA);
+//    BSP_LCD_DisplayStringAtLine(2, (uint8_t *)"123");
+//  BSP_LCD_DisplayChar(2, 2, 48);
+//  BSP_LCD_DisplayChar(2, 50, 49);
 
+  /*for(int i=2; i<52; i++){
+	  for (int j=2; j<52; j++){
+		  BSP_LCD_DrawPixel(i, j, LCD_COLOR_BLACK);
+	  }
+  }*/
   /* USER CODE END 2 */
 
   /* USER CODE BEGIN RTOS_MUTEX */
