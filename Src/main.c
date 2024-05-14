@@ -188,14 +188,32 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-	  BSP_LCD_SetTextColor(LCD_COLOR_MAGENTA);
-	  BSP_LCD_DisplayStringAtLine(1, (uint8_t *)"LOL");
 	  BSP_GYRO_GetXYZ(buffer);
 	  xval = buffer[0];
 	  yval = buffer[1];
-	  zval = buffer[2];
-	  printf("D %d %d %d \n", xval, yval, zval);
-	  HAL_Delay(200);
+     	  zval = buffer[2];
+          printf("D %d %d %d \n", xval, yval, zval);
+//        printf("HI\n\r");
+// 	  BSP_LCD_SetBackColor(LCD_COLOR_BLACK);
+//	  BSP_LCD_SetTextColor(LCD_COLOR_WHITE);
+//	  BSP_LCD_DrawHLine(5, 5, 30);
+//	  HAL_Delay(600);
+//	  BSP_LCD_DrawHLine(6, 5, 30);
+
+//        HAL_Delay(600);
+	  BSP_LCD_SetTextColor(LCD_COLOR_MAGENTA);
+//	  BSP_LCD_DisplayChar(2, 2, 49);
+//	  BSP_LCD_DrawBitmap(2, 2, (uint8_t *) 0xF0);
+	  BSP_LCD_DisplayStringAtLine(1, (uint8_t *)"1");
+	  BSP_LCD_SetTextColor(LCD_COLOR_BLACK);
+//	  BSP_LCD_DisplayChar(2, 15, 50);
+	  BSP_LCD_DisplayStringAtLine(2, (uint8_t *)"2");
+	  BSP_LCD_SetTextColor(LCD_COLOR_BLUE);
+//	  BSP_LCD_DisplayChar(2, 30, 51);
+	  BSP_LCD_DisplayStringAtLine(3, (uint8_t *)"3");
+	  BSP_LCD_SetTextColor(LCD_COLOR_DARKGREEN);
+//	  BSP_LCD_DisplayChar(2, 45, 52);
+	  BSP_LCD_DisplayStringAtLine(4, (uint8_t *)"4");
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
