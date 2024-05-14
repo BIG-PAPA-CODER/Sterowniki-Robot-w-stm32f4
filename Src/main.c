@@ -210,7 +210,7 @@ int main(void)
 //	  BSP_LCD_DisplayChar(2, 15, 50);
 	  BSP_LCD_DisplayStringAtLine(2, (uint8_t *)yval);
 	  
-	  BSP_LCD_SetTextColor(LCD_COLOR_BLUE);
+	  BSP_LCD_SetTextColor(LCD_COLOR_DARKGREEN);
 //	  BSP_LCD_DisplayChar(2, 30, 51);
 	  BSP_LCD_DisplayStringAtLine(3, (uint8_t *)zval);
     /* USER CODE END WHILE */
