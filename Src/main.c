@@ -176,8 +176,8 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-	  // BSP_LCD_SetTextColor(LCD_COLOR_MAGENTA);
-   //    BSP_LCD_DisplayStringAtLine(1, (uint8_t *)"LOL");
+	  BSP_LCD_SetTextColor(LCD_COLOR_MAGENTA);
+	  BSP_LCD_DisplayStringAtLine(1, (uint8_t *)"LOL");
 	  BSP_GYRO_GetXYZ(buffer);
 	  xval = buffer[0];
 	  yval = buffer[1];
