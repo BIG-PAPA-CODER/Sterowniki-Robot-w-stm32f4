@@ -112,13 +112,13 @@ int main(void)
   HAL_Init();
 
   /* USER CODE BEGIN Init */
-  // BSP_GYRO_Init();
-  // BSP_LCD_Init();
-  // BSP_LCD_LayerDefaultInit(LCD_BACKGROUND_LAYER, LCD_FRAME_BUFFER);
-  // BSP_LCD_LayerDefaultInit(LCD_FOREGROUND_LAYER, LCD_FRAME_BUFFER);
-  // BSP_LCD_DisplayOn();
-  // BSP_LCD_SelectLayer(LCD_FOREGROUND_LAYER);
-  // BSP_LCD_Clear(LCD_COLOR_WHITE);
+  BSP_GYRO_Init();
+  BSP_LCD_Init();
+  BSP_LCD_LayerDefaultInit(LCD_BACKGROUND_LAYER, LCD_FRAME_BUFFER);
+  BSP_LCD_LayerDefaultInit(LCD_FOREGROUND_LAYER, LCD_FRAME_BUFFER);
+  BSP_LCD_DisplayOn();
+  BSP_LCD_SelectLayer(LCD_FOREGROUND_LAYER);
+  BSP_LCD_Clear(LCD_COLOR_WHITE);
   /* USER CODE END Init */
 
   /* Configure the system clock */
@@ -176,14 +176,14 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-	  BSP_LCD_SetTextColor(LCD_COLOR_MAGENTA);
-      BSP_LCD_DisplayStringAtLine(1, (uint8_t *)"LOL");
-//	  BSP_GYRO_GetXYZ(buffer);
-//	  xval = buffer[0];
-//	  yval = buffer[1];
-//      zval = buffer[2];
-//      printf("D %d %d %d \n", xval, yval, zval);
-//      HAL_Delay(200);
+	  // BSP_LCD_SetTextColor(LCD_COLOR_MAGENTA);
+   //    BSP_LCD_DisplayStringAtLine(1, (uint8_t *)"LOL");
+	  BSP_GYRO_GetXYZ(buffer);
+	  xval = buffer[0];
+	  yval = buffer[1];
+	  zval = buffer[2];
+	  printf("D %d %d %d \n", xval, yval, zval);
+	  HAL_Delay(200);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
