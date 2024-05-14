@@ -57,11 +57,11 @@
 /* Includes ------------------------------------------------------------------*/
 #include "stm32f429i_discovery_lcd.h"
 #include "fonts.h"
-//#include "font24.c"
-//#include "font20.c"
-//#include "font16.c"
-//#include "font12.c"
-//#include "font8.c"
+#include "font24.c"
+#include "font20.c"
+#include "font16.c"
+#include "font12.c"
+#include "font8.c"
 
 /** @addtogroup BSP
   * @{
