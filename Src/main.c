@@ -708,6 +708,22 @@ int main(void)
 	  }
 
 	  check_hole();
+	    
+	  if(button_flag == 0 && HAL_GPIO_ReadPin(GPIOA, B1_Pin) == 1){
+		  HAL_Delay(200);
+		  button_flag = 1;
+		  while(1){
+			  BSP_LCD_DisplayStringAtLine(5, (uint8_t*)"   PAUSE ;)      ");
+			  if(button_flag == 1 && HAL_GPIO_ReadPin(GPIOA, B1_Pin) == 1){
+				  HAL_Delay(200);
+				  button_flag = 0;
+				  break;
+			  }
+		  }
+		  angle_xval = 0;
+		  angle_yval = 0;
+		  draw_all();
+	  }
 	  
 //	xval = buffer[0];
 //	yval = buffer[1];
@@ -715,6 +731,8 @@ int main(void)
 //	BSP_LCD_DisplayStringAtLine(1, (uint8_t*) xval);
 //  BSP_LCD_DisplayStringAtLine(2, (uint8_t*) yval);
 //  BSP_LCD_DisplayStringAtLine(3, (uint8_t*) zval);
+//	BSP_LCD_DisplayStringAtLine(1, (uint8_t*) angle_X);
+//  BSP_LCD_DisplayStringAtLine(2, (uint8_t*) angle_Y);
     HAL_Delay(50);
   }
 }
