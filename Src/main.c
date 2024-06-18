@@ -531,7 +531,49 @@ bool bitMap[320][240] = {
 
   };
 
+int checkX;
+int checkY;
 
+bool collision(int strona)
+{
+    //up-0, down-1, left-2, right-3
+    bool status = true;
+    int start=0, stop=0;
+    if (strona == 0){
+        start = 250;
+        stop = 290;
+    }
+    if (strona == 1){
+        start = 70;
+        stop = 110;
+    }
+    if (strona == 2){
+        start = 160;
+        stop = 200;
+    }
+    if (strona == 3){
+        start = -20;
+        stop = 20;
+    }
+    for (int r=8; r>3; r--){
+        for (int angle = start; angle <= stop; ++angle) {
+            double rad = angle * M_PI / 180.0;
+            checkX = x_current + r * cos(rad);
+            checkY = y_current + r * sin(rad);
+
+            if (checkX>=0 && checkY>=0 && checkX<240 && checkY<320){
+                if (bitMap[checkY][checkX]==1){
+                    status = false;
+                    break;
+                }
+            }
+        }
+        if(status == false){
+            break;
+        }
+    }
+    return status;
+}
 
 float buffer[3];
 char xval[20], yval[20], zval[20];
