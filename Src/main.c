@@ -640,11 +640,18 @@ int main(void)
 
   while (1)
     {
-	  BSP_GYRO_GetXYZ(buffer);
+
+	currentTime = HAL_GetTick(); // Get current time in milliseconds
+	deltaTime = (currentTime - previousTime) / 1000.0; // Convert to seconds
+	previousTime = currentTime;
+	BSP_GYRO_GetXYZ(buffer);
 
 //	sprintf(xval, "%f", buffer[0]);
 //	sprintf(yval, "%f", buffer[1]);
 //	sprintf(zval, "%f", buffer[2]);
+
+	angle_xval += buffer[0] * deltaTime - 1.3;
+	angle_yval += buffer[1] * deltaTime - 1.1;
 	  
 //	xval = buffer[0];
 //	yval = buffer[1];
