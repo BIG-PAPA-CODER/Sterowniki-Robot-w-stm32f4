@@ -673,6 +673,41 @@ int main(void)
 		    BSP_LCD_SetTextColor(LCD_COLOR_GREEN);
     		BSP_LCD_DrawCircle(x_current, y_current, 3);
 	    }
+
+	  if(angle_yval > 1000){
+		  if(collision(3)){
+			  clear_ball();
+			  BSP_LCD_SetTextColor(LCD_COLOR_GREEN);
+			  BSP_LCD_DrawCircle(x_current += 5, y_current, 3);
+		  }
+	  } else if (angle_yval < -1000){
+  		  if(collision(2)){
+  			  clear_ball();
+  			  BSP_LCD_SetTextColor(LCD_COLOR_GREEN);
+  			  BSP_LCD_DrawCircle(x_current -= 5, y_current, 3);
+  		  }
+	  } else {
+  		  clear_ball();
+  		  BSP_LCD_SetTextColor(LCD_COLOR_GREEN);
+  		  BSP_LCD_DrawCircle(x_current, y_current, 3);
+  	  }
+
+//	  if(HAL_GPIO_ReadPin(GPIOA, B1_Pin) == 1){  		//  calibration
+//		  angle_xval = 0;
+//		  angle_yval = 0;
+//	  };
+
+	  if(y_current == 320){
+		  x_current = 44;
+		  y_current = 10;
+		  BSP_LCD_DisplayStringAtLine(5, (uint8_t*)"   YOU WON!        ");
+		  HAL_Delay(3000);
+		  angle_xval = 0;
+		  angle_yval = 0;
+		  draw_all();
+	  }
+
+	  check_hole();
 	  
 //	xval = buffer[0];
 //	yval = buffer[1];
