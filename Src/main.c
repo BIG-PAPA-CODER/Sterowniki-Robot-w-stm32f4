@@ -652,6 +652,27 @@ int main(void)
 
 	angle_xval += buffer[0] * deltaTime - 1.3;
 	angle_yval += buffer[1] * deltaTime - 1.1;
+
+//    sprintf(angle_X, "%f", angle_xval);
+//    sprintf(angle_Y, "%f", angle_yval);
+
+	  if(angle_xval > 1000){
+		  if(collision(1)){
+			  clear_ball();
+			  BSP_LCD_SetTextColor(LCD_COLOR_GREEN);
+			  BSP_LCD_DrawCircle(x_current, y_current += 5, 3);
+		  }
+	  } else if (angle_xval < -1000){
+  		  if(collision(0)){
+			    clear_ball();
+			    BSP_LCD_SetTextColor(LCD_COLOR_GREEN);
+		  	  BSP_LCD_DrawCircle(x_current, y_current -= 5, 3);
+  		  }
+	  } else {
+		    clear_ball();
+		    BSP_LCD_SetTextColor(LCD_COLOR_GREEN);
+    		BSP_LCD_DrawCircle(x_current, y_current, 3);
+	    }
 	  
 //	xval = buffer[0];
 //	yval = buffer[1];
